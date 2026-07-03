@@ -168,4 +168,24 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleBtn.addEventListener('click', function() {
         setTheme(localStorage.getItem('theme') === 'dark' ? 'light' : 'dark');
     })
-    
+
+       var heroBg = document.querySelector('.hero__bg');
+    if (heroBg) {
+        var caption = document.createElement('div');
+        caption.style.cssText = 'position:absolute; bottom:2rem; left:2rem; background:rgba(0,0,0,0.85); color:white; padding:1.2rem; border-radius:10px; max-width:320px; display:none; z-index:10; border-left:4px solid #f5a000;';
+        caption.innerHTML = '<h4 style="color:#f5a000;margin:0 0 0.5rem;"> Azizi Harmonics</h4><p style="margin:0;font-size:0.9rem;">Founded in 1995 • 500+ students • 15 instruments • ABRSM Centre</p>';
+
+        var heroSection = document.getElementById('home');
+        if (heroSection) {
+            heroSection.style.position = 'relative';
+            heroSection.appendChild(caption);
+        }
+
+        heroBg.style.cursor = 'pointer';
+        heroBg.addEventListener('click', function() {
+            caption.style.display = (caption.style.display === 'none') ? 'block' : 'none';
+        });
+    }
+
+    console.log(' Azizi Harmonics – all features loaded!');
+});
