@@ -343,7 +343,7 @@ p {
   inset: 0;
   background-image:
     linear-gradient(rgba(28, 43, 48, 0.55), rgba(28, 43, 48, 0.55)),
-    url("hero.jpeg");
+    url("../images/hero.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1233,4 +1233,53 @@ p {
   .stats-inner {
     gap: 1.5rem;
   }
+}
+
+/* ===== WISHLIST ===== */
+#wishlist .sec-title {
+  margin-bottom: 0.5rem;
+}
+
+#wishlistForm input:focus {
+  outline: none;
+  border-color: #f5a000 !important;
+  box-shadow: 0 0 0 3px rgba(245, 160, 0, 0.14);
+}
+
+#wishlistItems li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #f5a000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  animation: slideIn 0.3s ease;
+}
+
+#wishlistItems li span {
+  font-weight: 500;
+  color: #1c2b30;
+  font-size: 0.95rem;
+}
+
+#wishlistItems li button {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 1.3rem;
+  cursor: pointer;
+  padding: 0 0.3rem;
+  transition: transform 0.2s ease;
+}
+
+#wishlistItems li button:hover {
+  transform: scale(1.2);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-15px); }
+  to   { opacity: 1; transform: translateX(0); }
 }

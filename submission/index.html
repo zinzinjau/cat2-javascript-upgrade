@@ -7,7 +7,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/script.js"></script>
 </head>
 <body>
 
@@ -105,7 +106,7 @@
     <div class="courses-grid">
       <a href="#fees" class="course-card">
         <div class="course-image">
-          <img src="WhatsApp Image 2026-06-05 at 12.01.09 PM (1).jpeg" alt="Piano">
+          <img src="images/WhatsApp Image 2026-06-05 at 12.01.09 PM (1).jpeg" alt="Piano">
         </div>
         <h4>Piano</h4>
         <p>Keyboard instrument</p>
@@ -113,7 +114,7 @@
 
       <a href="#fees" class="course-card">
         <div class="course-image">
-          <img src="WhatsApp Image 2026-06-05 at 12.01.09 PM.jpeg" alt="Guitar">
+          <img src="images/WhatsApp Image 2026-06-05 at 12.01.09 PM.jpeg" alt="Guitar">
         </div>
         <h4>Guitar</h4>
         <p>Classical &amp; electric</p>
@@ -137,7 +138,7 @@
 
       <a href="#fees" class="course-card">
         <div class="course-image">
-          <img src="WhatsApp Image 2026-06-04 at 10.15.02 AM.jpeg" alt="Vocals">
+          <img src="images/WhatsApp Image 2026-06-04 at 10.15.02 AM.jpeg" alt="Vocals">
         </div>
         <h4>Vocals</h4>
         <p>Singing &amp; choir</p>
@@ -148,7 +149,7 @@
 <section id="about" class="sec" aria-labelledby="about-h">
   <div class="container about-grid">
     <div class="about-img">
-      <img src="WhatsApp Image 2026-06-04 at 10.15.02 AM (1).jpeg" alt="Students at Azizi Harmonics">
+      <img src="images/WhatsApp Image 2026-06-04 at 10.15.02 AM (1).jpeg" alt="Students at Azizi Harmonics">
     </div>
 
     <div class="about-body">
@@ -271,7 +272,7 @@
 
       <article class="group-card">
         <div class="group-img">
-          <img src="WhatsApp Image 2026-06-04 at 10.15.03 AM.jpeg" alt="Group guitar class">
+          <img src="images/WhatsApp Image 2026-06-04 at 10.15.03 AM.jpeg" alt="Group guitar class">
         </div>
         <div class="group-body">
           <h4>Group Guitar</h4>
@@ -290,6 +291,28 @@
           <a href="#fees">View Details →</a>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<section id="wishlist" class="sec" style="background: #f5f2ee; padding: 3rem 0;">
+  <div class="container">
+    <div class="tc">
+      <span class="tag">Wishlist</span>
+      <h2 class="sec-title">My Instrument Wishlist</h2>
+      <p class="sec-sub">Add instruments you'd love to learn – they'll stay saved even after you refresh!</p>
+    </div>
+
+    <div style="max-width: 500px; margin: 0 auto;">
+      <form id="wishlistForm" style="display: flex; gap: 0.8rem; margin-bottom: 1.5rem;">
+        <input type="text" id="wishlistInput" placeholder="e.g. Trumpet, Saxophone..."
+               style="flex: 1; padding: 0.7rem 1rem; border: 2px solid rgba(127,168,176,0.3); border-radius: 0.5rem; font-size: 0.95rem;">
+        <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Add</button>
+      </form>
+
+      <ul id="wishlistItems" style="list-style: none; padding: 0;">
+        <!-- Items will be dynamically added here -->
+      </ul>
     </div>
   </div>
 </section>
@@ -383,6 +406,8 @@
             <li>End-of-term recital</li>
             <li>Parent progress reports</li>
           </ul>
+
+          
           <a href="#contacts" class="btn btn-outline" style="width:100%;justify-content:center;">Enrol</a>
           <p class="pc-note">Registration: KSh 1,500 once-off</p>
         </article>
@@ -449,7 +474,7 @@
 
         <article class="team-card">
           <div class="tc-photo">
-  <img src="WhatsApp Image 2026-06-05 at 11.00.16 AM.jpeg" alt="Sarah Kamau">
+  <img src="images/WhatsApp Image 2026-06-05 at 11.00.16 AM.jpeg" alt="Sarah Kamau">
 </div>
           <div class="tc-body">
             <h3 class="tc-name">Hezron</h3>
@@ -461,7 +486,7 @@
 
         <article class="team-card">
            <div class="tc-photo">
-  <img src="WhatsApp Image 2026-06-05 at 11.00.50 AM.jpeg" alt="Sarah Kamau">
+  <img src="images/WhatsApp Image 2026-06-05 at 11.00.50 AM.jpeg" alt="Sarah Kamau">
 </div>
           <div class="tc-body">
             <h3 class="tc-name">Albert</h3>
@@ -473,7 +498,7 @@
 
         <article class="team-card">
            <div class="tc-photo">
-  <img src="WhatsApp Image 2026-06-05 at 11.40.31 AM.jpeg" alt="Sarah Kamau">
+  <img src="images/WhatsApp Image 2026-06-05 at 11.40.31 AM.jpeg" alt="Sarah Kamau">
 </div>
           <div class="tc-body">
             <h3 class="tc-name">Success</h3>
