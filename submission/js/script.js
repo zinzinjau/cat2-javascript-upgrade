@@ -146,3 +146,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+     var toggleBtn = document.createElement('button');
+    toggleBtn.textContent = '🌙';
+    toggleBtn.style.cssText = 'position:fixed; bottom:1rem; right:1rem; z-index:999; width:3.5rem; height:3.5rem; border-radius:50%; background:white; border:2px solid #f5a000; cursor:pointer; font-size:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,0.1);';
+    document.body.appendChild(toggleBtn);
+
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            document.body.style.backgroundColor = '#1c2b30';
+            document.body.style.color = 'white';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    setTheme(localStorage.getItem('theme') || 'light');
+    toggleBtn.addEventListener('click', function() {
+        setTheme(localStorage.getItem('theme') === 'dark' ? 'light' : 'dark');
+    })
+    
