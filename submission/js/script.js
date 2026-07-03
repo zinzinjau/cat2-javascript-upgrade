@@ -27,3 +27,92 @@ document.addEventListener('DOMContentLoaded', function() {
 
         coursesSection.appendChild(container);
     }
+
+
+     var wishForm = document.getElementById('wishlistForm');
+    var wishInput = document.getElementById('wishlistInput');
+    var wishList = document.getElementById('wishlistItems');
+
+    // check its existance
+    if (wishForm && wishInput && wishList) {
+        console.log('Wishlist found, yayyyyyyyyyyyyyyy');
+
+        
+        function addWishlistItem(itemText, saveToStorage) {
+            var trimmed = itemText.trim();
+            if (trimmed === '') return;
+
+            
+            var li = document.createElement('li');
+
+            
+            var span = document.createElement('span');
+            span.textContent = trimmed;
+
+            // Delete button
+            var delBtn = document.createElement('button');
+            delBtn.textContent = 'gone';
+            
+            // Delete event
+            delBtn.addEventListener('click', function() {
+                li.remove();
+                saveWishlist();
+                console.log('Removed:', trimmed);
+            });
+
+            li.appendChild(span);
+            li.appendChild(delBtn);
+            wishList.appendChild(li);
+
+            // Clear input
+            wishInput.value = '';
+
+            // Save to localStorage (if not loading from storage)
+            if (saveToStorage !== false) {
+                saveWishlist();
+                console.log('Added:', trimmed);
+            }
+        }
+
+        // Save current list to localStorage
+        function saveWishlist() {
+            var items = [];
+            wishList.querySelectorAll('li span').forEach(function(span) {
+                items.push(span.textContent);
+            });
+            localStorage.setItem('wishlist', JSON.stringify(items));
+            console.log('Wishlist saved:', items);
+        }
+
+        // Load saved list from localStorage
+        function loadWishlist() {
+            var saved = localStorage.getItem('wishlist');
+            if (saved) {
+                try {
+                    var items = JSON.parse(saved);
+                    if (items.length > 0) {
+                        items.forEach(function(item) {
+                            addWishlistItem(item, false); // Don't save again
+                        });
+                        console.log('Loaded', items.length, 'items from storage.');
+                    } else {
+                        console.log('ℹWishlist is empty.');
+                    }
+                } catch (e) {
+                    console.warn('Could not parse wishlist from localStorage.');
+                }
+            } else {
+                console.log('ℹNo saved wishlist found.');
+            }
+        }
+
+        // Handle form submit
+        wishForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            addWishlistItem(wishInput.value);
+        });
+
+        // Load existing items on page load
+        loadWishlist();
+
+  
