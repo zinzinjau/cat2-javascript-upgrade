@@ -114,5 +114,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Load existing items on page load
         loadWishlist();
+    }
 
-  
+      var contactForm = document.getElementById('cForm');
+    var successDiv = document.getElementById('fSuccess');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var fname = document.getElementById('fname');
+            var lname = document.getElementById('lname');
+            var email = document.getElementById('email');
+            var msg = document.getElementById('msg');
+
+            var errors = [];
+            if (fname.value.trim().length < 2) { errors.push('First name too short'); fname.style.borderColor = 'red'; } else { fname.style.borderColor = 'green'; }
+            if (lname.value.trim().length < 2) { errors.push('Last name too short'); lname.style.borderColor = 'red'; } else { lname.style.borderColor = 'green'; }
+            if (!email.value.includes('@')) { errors.push('Invalid email'); email.style.borderColor = 'red'; } else { email.style.borderColor = 'green'; }
+            if (msg.value.trim().length < 5) { errors.push('Message too short'); msg.style.borderColor = 'red'; } else { msg.style.borderColor = 'green'; }
+
+            if (errors.length > 0) {
+                successDiv.innerHTML = '<div style="color:red;background:#ffe6e6;padding:1rem;border-radius:5px;"><strong>Errors:</strong><ul>' + 
+                                       errors.map(function(e) { return '<li>' + e + '</li>'; }).join('') + '</ul></div>';
+                successDiv.style.display = 'block';
+            } else {
+                successDiv.innerHTML = 'Thanks ' + fname.value + '! We\'ll reply to ' + email.value + ' soon.';
+                successDiv.style.cssText = 'display: block; background: #e6ffe6; padding: 1rem; border-radius: 5px; margin-top: 1rem;';
+                contactForm.reset();
+                [fname, lname, email, msg].forEach(function(f) { f.style.borderColor = ''; });
+            }
+        });
+    }
